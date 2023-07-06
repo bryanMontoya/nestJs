@@ -1,8 +1,8 @@
 {
   "name": "platzi-store",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "Tienda de platzi con nestjs",
+  "author": "Brayan Montoya",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
