@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Post, Put, Query, Body, HttpCode, HttpStatus } from '@nestjs/common';
+import { Controller, Get, Param, Post, Put, Query, Body, HttpCode, HttpStatus, ParseIntPipe } from '@nestjs/common';
 
 import { ProductsService } from '../../services/products/products.service';
 @Controller('products')
@@ -16,8 +16,8 @@ export class ProductsController {
 
     @Get(':productId')
     @HttpCode(HttpStatus.OK)
-    getProduct(@Param('productId') productId: string) {
-        return this.productsService.findOne(+productId);
+    getProduct(@Param('productId', ParseIntPipe) productId: number) { //Todo lo que se recibe por url es string
+        return this.productsService.findOne(productId); //ParseIntPipe: Transformación.
     }
 
     @Get()
