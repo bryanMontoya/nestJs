@@ -1,9 +1,14 @@
-import { Controller, Get, Param, Post, Put, Query, Body, HttpCode, HttpStatus, ParseIntPipe } from '@nestjs/common';
+import { Controller, Get, Param, Post, Put, Query, Body, HttpCode, HttpStatus,
+    //ParseIntPipe
+} from '@nestjs/common';
 
 import { ProductsService } from '../../services/products/products.service';
+
+import {ParseIntPipe} from '../../common/parse-int/parse-int.pipe'
 @Controller('products')
 export class ProductsController {
 
+    //Pipe: Transformar y validar datos.
     constructor(private productsService: ProductsService){}
 
     @Get('filter')
