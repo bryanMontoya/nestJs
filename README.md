@@ -75,4 +75,7 @@ Nest is [MIT licensed](LICENSE).
 ## Notas
 ```bash
 $ nest new project-name
+
+#Para validar objetos
+$ npm i class-validator class-transformer
 ```
