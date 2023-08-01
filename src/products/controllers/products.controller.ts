@@ -4,7 +4,7 @@ import { Controller, Get, Param, Post, Put, Query, Body, HttpCode, HttpStatus,
 
 import { ProductsService } from '../../services/products/products.service';
 import { ParseIntPipe } from '../../common/parse-int/parse-int.pipe'
-import { CreateProductDto, UpdateProductDto } from '../../dtos/product.dto';
+import { CreateProductDto, UpdateProductDto } from '../dtos/product.dto';
 @Controller('products')
 export class ProductsController {
 

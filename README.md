@@ -78,4 +78,7 @@ $ nest new project-name
 
 #Para validar objetos
 $ npm i class-validator class-transformer
+
+##Modulos con crud
+$ nest g resource users
 ```

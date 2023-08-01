@@ -8,9 +8,12 @@ import { OrdersController } from './controllers/orders/orders.controller';
 import { CustomersController } from './controllers/customers/customers.controller';
 import { BrandsController } from './controllers/brands/brands.controller';
 import { ProductsService } from './services/products/products.service';
+import { ProductsModule } from './products/products.module';
+import { UsersModule } from './users/users.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
-  imports: [],
+  imports: [ProductsModule, UsersModule],
   controllers: [
     AppController,
     ProductsController,
