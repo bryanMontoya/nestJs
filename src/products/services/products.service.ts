@@ -4,17 +4,16 @@ import { CreateProductDto, UpdateProductDto } from '../dtos/product.dto';
 
 @Injectable()
 export class ProductsService {
-
     private counterId = 1;
     private products: Product[] = [
         {
-            id:1,
+            id: 1,
             name: 'Product 1',
             description: 'bla bla bla',
             price: 122,
             image: '',
-            stock: 12
-        }
+            stock: 12,
+        },
     ];
 
     findAll() {
@@ -23,30 +22,32 @@ export class ProductsService {
 
     findOne(id: number) {
         const product = this.products.find((item) => item.id === id);
-        if (!product){ //Error first, validar primero los errores.
+        if (!product) {
+            //Error first, validar primero los errores.
             throw new NotFoundException(`Product #${id} not found`);
         }
         return product;
     }
 
-    create(payload: CreateProductDto){
+    create(payload: CreateProductDto) {
         console.log(payload);
         this.counterId = this.counterId + 1;
         const newProduct = {
             id: this.counterId,
-            ...payload
+            ...payload,
         };
         this.products.push(newProduct);
         return newProduct;
     }
 
-    update(id: number, payload: any){
+    update(id: number, payload: any) {
         const product = this.findOne(id);
-        if (product){
+        if (product) {
             const index = this.products.findIndex((item) => item.id === id);
-            this.products[index] = { //merge entre productos.
+            this.products[index] = {
+                //merge entre productos.
                 ...product,
-                ...payload
+                ...payload,
             };
             return this.products[index];
         }
