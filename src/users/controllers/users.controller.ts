@@ -10,6 +10,7 @@ import {
 import { UsersService } from '../services/users.service';
 import { CreateUserDto } from '../dto/create-user.dto';
 import { UpdateUserDto } from '../dto/update-user.dto';
+import { ParseIntPipe } from 'src/common/parse-int/parse-int.pipe';
 
 @Controller('users')
 export class UsersController {
@@ -38,5 +39,10 @@ export class UsersController {
     @Delete(':id')
     remove(@Param('id') id: string) {
         return this.usersService.remove(+id);
+    }
+
+    @Get(':id/orders')
+    getOrdersByUser(@Param('id', ParseIntPipe) id: number) {
+        return this.usersService.getOrdersByUser(+id);
     }
 }
