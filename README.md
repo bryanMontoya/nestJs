@@ -82,3 +82,7 @@ $ npm i class-validator class-transformer
 ##Modulos con crud
 $ nest g resource users
 ```
+
+Algunos Apuntes
+- Singleton: Patron que se asegura que un servicio no se instancie multiples veces(problemas de consumo de memoria), sino que al contrario, si varios controladores necesitan ese servicio, se devuelva la misma instancia.
+- Se debe evitar la inyeccion de dependencias circular. Ej: que el servicio a inyecte el servicio b y el servicio b a su vez inyecte el servicio a.
