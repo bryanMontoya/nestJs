@@ -80,7 +80,10 @@ $ nest new project-name
 $ npm i class-validator class-transformer
 
 ##Modulos con crud
-$ nest g resource users
+$ nest g resource modulo
+
+##Solo el modulo
+$ nest g mo modulo
 ```
 
 Algunos Apuntes

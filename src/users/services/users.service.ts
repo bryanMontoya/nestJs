@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { CreateUserDto } from '../dto/create-user.dto';
 import { UpdateUserDto } from '../dto/update-user.dto';
 import { User } from '../entities/user.entity';
@@ -8,7 +8,10 @@ import { ProductsService } from './../../products/services/products.service';
 
 @Injectable()
 export class UsersService {
-    constructor(private productsService: ProductsService) {}
+    constructor(
+        private productsService: ProductsService,
+        @Inject('API_KEY') private apiKey: string,
+    ) {}
     private users: User[] = [
         {
             id: 1,
