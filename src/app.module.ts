@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
-import { last, lastValueFrom } from 'rxjs';
+import { lastValueFrom } from 'rxjs';
+import { ConfigModule } from '@nestjs/config';
 import { HttpModule, HttpService } from '@nestjs/axios';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -8,7 +9,16 @@ import { UsersModule } from './users/users.module';
 import { DatabaseModule } from './database/database.module';
 
 @Module({
-    imports: [ProductsModule, UsersModule, HttpModule, DatabaseModule],
+    imports: [
+        ProductsModule,
+        UsersModule,
+        HttpModule,
+        DatabaseModule,
+        ConfigModule.forRoot({
+            envFilePath: '.env',
+            isGlobal: true,
+        }),
+    ],
     controllers: [AppController],
     providers: [
         AppService,
